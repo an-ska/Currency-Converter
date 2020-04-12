@@ -1,0 +1,4 @@
+export const CONVERT = 'CONVERT';
+export const CONVERT_START = 'CONVERT_START';
+export const CONVERT_SUCCESS = 'CONVERT_SUCCESS';
+export const CONVERT_FAIL = 'CONVERT_FAIL';
