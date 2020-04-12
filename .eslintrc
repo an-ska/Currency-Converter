@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["plugin:react/recommended", "plugin:jsx-a11y/recommended", "prettier", "prettier/react"],
+  "plugins": ["jsx-a11y", "prettier"],
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-empty": 1,
+    "no-unreachable": 1,
+    "eqeqeq": 1,
+    "dot-notation": 1,
+    "no-multi-spaces": 1,
+    "no-useless-escape": 1,
+    "no-useless-return": 1,
+    "no-unused-vars": 1,
+    "camelcase": 1,
+    "eol-last": 1,
+    "no-var": 1,
+    "no-const-assign": 1
+  }
+}
