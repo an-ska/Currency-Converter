@@ -3,7 +3,11 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import { useDispatch } from 'react-redux';
 import { showHistoricalRates } from '../../store/actions/historicalRates';
-import { formatDate, getTodayDate } from '../../services/dates';
+import {
+	formatDate,
+	getTodayDate,
+	getHistoricalRatesStartDate,
+} from '../../services/dates';
 import getCurrencySelectOptions from '../../services/currency/getCurrencySelectOptions';
 
 const HistoricalRatesForm = () => {
@@ -64,7 +68,7 @@ const HistoricalRatesForm = () => {
 				value={getFormattedValue(from)}
 				dayPickerProps={{
 					selectedDays: [from, { from, to }],
-					disabledDays: { before: new Date(1999, 1, 1), after: to },
+					disabledDays: { before: getHistoricalRatesStartDate, after: getTodayDate },
 					modifiers,
 					numberOfMonths: 2,
 					onDayClick: () => to.getInput().focus(),
