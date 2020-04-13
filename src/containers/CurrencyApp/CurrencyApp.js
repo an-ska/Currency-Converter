@@ -3,6 +3,7 @@ import './CurrencyApp.scss';
 import ConverterForm from '../ConverterForm/ConverterForm';
 import HistoricalRatesForm from '../HistoricalRatesForm/HistoricalRatesForm';
 import HistoricalRatesChart from '../../components/HistoricalRatesChart/HistoricalRatesChart';
+import HistoricalRatesResult from '../../components/HistoricalRatesResult/HistoricalRatesResult';
 import { useSelector } from 'react-redux';
 import ConverterResult from '../../components/ConverterResult/ConverterResult';
 
@@ -10,8 +11,9 @@ const CurrencyApp = () => {
 	const historicalRates = useSelector(
 		state => state.historicalRates.historicalRatesData,
 	);
-	const resultData = useSelector(state => state.converter.conversionResult);
-	const { amount, from, result, to } = resultData;
+	const { chart } = historicalRates;
+	const conversionResult = useSelector(state => state.converter.conversionResult);
+	const { amount, from, result, to } = conversionResult;
 
 	return (
 		<>
@@ -25,7 +27,12 @@ const CurrencyApp = () => {
 				></ConverterResult>
 			)}
 			<HistoricalRatesForm></HistoricalRatesForm>
-			<HistoricalRatesChart historicalRates={historicalRates.chart} />
+			{chart.length > 0 && (
+				<>
+					<HistoricalRatesChart historicalRates={chart} />
+					<HistoricalRatesResult historicalRates={historicalRates} />
+				</>
+			)}
 		</>
 	);
 };
