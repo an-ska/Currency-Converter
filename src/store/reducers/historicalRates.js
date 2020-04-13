@@ -9,32 +9,26 @@ export const initialState = {
 	},
 };
 
-const historicalRatesStart = state => {
-	return {
-		...state,
-		error: null,
-		loading: true,
-	};
-};
+const historicalRatesStart = state => ({
+	...state,
+	error: null,
+	loading: true,
+});
 
-const historicalRatesSuccess = (state, action) => {
-	return {
-		...state,
-		loading: false,
-		historicalRatesData: {
-			chart: action.historicalRates,
-			currency: action.currency,
-		},
-	};
-};
+const historicalRatesSuccess = (state, action) => ({
+	...state,
+	loading: false,
+	historicalRatesData: {
+		chart: action.historicalRates,
+		currency: action.currency,
+	},
+});
 
-const historicalRatesFail = (state, action) => {
-	return {
-		...state,
-		error: action.error,
-		loading: false,
-	};
-};
+const historicalRatesFail = (state, action) => ({
+	...state,
+	error: action.error,
+	loading: false,
+});
 
 export const reducer = (state = initialState, action) => {
 	switch (action.type) {

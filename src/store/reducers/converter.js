@@ -11,34 +11,28 @@ export const initialState = {
 	},
 };
 
-const convertStart = state => {
-	return {
-		...state,
-		error: null,
-		loading: true,
-	};
-};
+const convertStart = state => ({
+	...state,
+	error: null,
+	loading: true,
+});
 
-const convertSuccess = (state, action) => {
-	return {
-		...state,
-		loading: false,
-		conversionResult: {
-			amount: action.amount,
-			from: action.from,
-			to: action.to,
-			result: action.result,
-		},
-	};
-};
+const convertSuccess = (state, action) => ({
+	...state,
+	loading: false,
+	conversionResult: {
+		amount: action.amount,
+		from: action.from,
+		to: action.to,
+		result: action.result,
+	},
+});
 
-const convertFail = (state, action) => {
-	return {
-		...state,
-		error: action.error,
-		loading: false,
-	};
-};
+const convertFail = (state, action) => ({
+	...state,
+	error: action.error,
+	loading: false,
+});
 
 export const reducer = (state = initialState, action) => {
 	switch (action.type) {
