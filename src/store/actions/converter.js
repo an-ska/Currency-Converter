@@ -29,7 +29,7 @@ export const convert = converterData => dispatch => {
 	const url = `${latest}&base=${converterData.from}&symbols=${converterData.to}`;
 
 	return axios
-		.get(url, converterData)
+		.get(url)
 		.then(response => {
 			const rate = response.data.rates[converterData.to];
 

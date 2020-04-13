@@ -68,7 +68,7 @@ const Converter = () => {
 				<button>SUBMIT</button>
 			</form>
 			<div>
-				{conversionResult.amount} {conversionResult.from} is
+				{conversionResult.amount} {conversionResult.from} is{' '}
 				{conversionResult.result} {conversionResult.to}
 			</div>
 		</>
