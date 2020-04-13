@@ -20,6 +20,11 @@ module.exports = {
 				loader: ['babel-loader', 'eslint-loader'],
 			},
 			{
+				test: /\.css$/,
+				include: /node_modules/,
+				loaders: ['style-loader', 'css-loader'],
+			},
+			{
 				test: /\.scss$/,
 				use: [
 					'style-loader',
