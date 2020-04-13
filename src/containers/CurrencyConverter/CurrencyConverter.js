@@ -6,13 +6,15 @@ import Chart from '../../components/Chart/Chart';
 import { useSelector } from 'react-redux';
 
 const CurrencyConverter = () => {
-	const chartData = useSelector(state => state.timeChanges.timeChangesData);
+	const historicalRates = useSelector(
+		state => state.historicalRates.historicalRatesData,
+	);
 
 	return (
 		<>
 			<Converter></Converter>
 			<HistoricalRatesForm></HistoricalRatesForm>
-			<Chart data={chartData.fetchedData} />
+			<Chart data={historicalRates.chart} />
 		</>
 	);
 };

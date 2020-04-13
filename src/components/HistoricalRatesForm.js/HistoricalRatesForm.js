@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import { useDispatch } from 'react-redux';
-import { showHistoricalRates } from '../../store/actions/timeChanges';
+import { showHistoricalRates } from '../../store/actions/historicalRates';
 import { formatDate, getTodayDate } from '../../services/dates';
 
 const HistoricalRatesForm = () => {
