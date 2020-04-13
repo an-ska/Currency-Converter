@@ -14,6 +14,7 @@ export const initialState = {
 const convertStart = state => {
 	return {
 		...state,
+		error: null,
 		loading: true,
 	};
 };

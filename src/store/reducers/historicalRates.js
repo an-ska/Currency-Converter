@@ -12,6 +12,7 @@ export const initialState = {
 const historicalRatesStart = state => {
 	return {
 		...state,
+		error: null,
 		loading: true,
 	};
 };

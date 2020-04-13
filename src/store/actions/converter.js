@@ -35,7 +35,7 @@ export const convert = converterData => dispatch => {
 
 			dispatch(convertSuccess(converterData, rate));
 		})
-		.catch(error => {
-			dispatch(convertFail(error.response.status));
+		.catch(() => {
+			dispatch(convertFail(true));
 		});
 };

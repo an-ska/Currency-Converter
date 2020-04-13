@@ -34,6 +34,6 @@ export const showHistoricalRates = (from, to, currency) => async dispatch => {
 
 		dispatch(historicalRatesSuccess(currency, historicalRates));
 	} catch (error) {
-		dispatch(historicalRatesFail(error.response.status));
+		dispatch(historicalRatesFail(true));
 	}
 };
