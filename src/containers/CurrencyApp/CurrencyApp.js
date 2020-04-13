@@ -25,7 +25,7 @@ const CurrencyApp = () => {
 				></ConverterResult>
 			)}
 			<HistoricalRatesForm></HistoricalRatesForm>
-			<HistoricalRatesChart data={historicalRates.chart} />
+			<HistoricalRatesChart historicalRates={historicalRates.chart} />
 		</>
 	);
 };
