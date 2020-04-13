@@ -20,18 +20,17 @@ export const historicalRatesFail = error => ({
 	error,
 });
 
-export const showHistoricalRates = (fromDate, toDate) => async dispatch => {
+export const showHistoricalRates = (from, to, currency) => async dispatch => {
 	dispatch(historicalRatesStart());
 
-	const currency = 'USD';
-	const urlStartDate = `${API}${fromDate}?access_key=${API_KEY}&symbols=${currency}`;
-	const urlEndDate = `${API}${toDate}?access_key=${API_KEY}&symbols=${currency}`;
+	const urlStartDate = `${API}${from}?access_key=${API_KEY}&symbols=${currency}`;
+	const urlEndDate = `${API}${to}?access_key=${API_KEY}&symbols=${currency}`;
 
 	try {
-		const start = await axios.get(urlStartDate);
-		const end = await axios.get(urlEndDate);
+		const startPoint = await axios.get(urlStartDate);
+		const endPoint = await axios.get(urlEndDate);
 
-		const historicalRates = [start.data, end.data];
+		const historicalRates = [startPoint.data, endPoint.data];
 
 		dispatch(historicalRatesSuccess(currency, historicalRates));
 	} catch (error) {

@@ -4,16 +4,18 @@ import 'react-day-picker/lib/style.css';
 import { useDispatch } from 'react-redux';
 import { showHistoricalRates } from '../../store/actions/historicalRates';
 import { formatDate, getTodayDate } from '../../services/dates';
+import getCurrencySelectOptions from '../../services/currency/getCurrencySelectOptions';
 
 const HistoricalRatesForm = () => {
 	const [dateRange, setDateRange] = useState({
 		from: '',
 		to: '',
 	});
+	const [currency, setCurrency] = useState('');
 
 	const dispatch = useDispatch();
-	const onShowHistoricalRates = (from, to) =>
-		dispatch(showHistoricalRates(from, to));
+	const onShowHistoricalRates = (from, to, currency) =>
+		dispatch(showHistoricalRates(from, to, currency));
 
 	const handleDateFromChange = from => {
 		setDateRange({ ...dateRange, from });
@@ -23,10 +25,18 @@ const HistoricalRatesForm = () => {
 		setDateRange({ ...dateRange, to });
 	};
 
+	const handleCurrencyChange = event => {
+		setCurrency(event.target.value);
+	};
+
 	const handleSubmit = event => {
 		event.preventDefault();
 
-		onShowHistoricalRates(formatDate(dateRange.from), formatDate(dateRange.to));
+		onShowHistoricalRates(
+			formatDate(dateRange.from),
+			formatDate(dateRange.to),
+			currency,
+		);
 	};
 
 	const getFormattedValue = date => (date ? formatDate(date) : '');
@@ -36,6 +46,15 @@ const HistoricalRatesForm = () => {
 
 	return (
 		<form onSubmit={handleSubmit}>
+			<label htmlFor="currency">Currency:</label>
+			<select
+				id="currency"
+				name="currency"
+				value={currency}
+				onChange={handleCurrencyChange}
+			>
+				{getCurrencySelectOptions}
+			</select>
 			<label htmlFor="from">From:</label>
 			<DayPickerInput
 				name="from"
