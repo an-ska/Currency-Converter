@@ -1,4 +1,3 @@
-
 export const API = 'http://data.fixer.io/api/';
 export const API_KEY = '0e3e3d5bddeb34067fe3afdeab8e0f38';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './CurrencyConverter.scss';
 import Converter from '../../components/Converter/Converter';
-import Timeseries from '../../components/Timeseries/Timeseries';
+import HistoricalRatesForm from '../../components/HistoricalRatesForm.js/HistoricalRatesForm';
 import Chart from '../../components/Chart/Chart';
 import { useSelector } from 'react-redux';
 
@@ -11,7 +11,7 @@ const CurrencyConverter = () => {
 	return (
 		<>
 			<Converter></Converter>
-			<Timeseries></Timeseries>
+			<HistoricalRatesForm></HistoricalRatesForm>
 			<Chart data={chartData.fetchedData} />
 		</>
 	);

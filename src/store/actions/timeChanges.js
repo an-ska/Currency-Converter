@@ -25,7 +25,7 @@ export const timeChangesFail = error => ({
 	error,
 });
 
-export const showTimeChanges = (fromDate, toDate) => async dispatch => {
+export const showHistoricalRates = (fromDate, toDate) => async dispatch => {
 	dispatch(timeChangesStart());
 
 	const from = 'EUR';
