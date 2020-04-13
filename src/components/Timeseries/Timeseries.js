@@ -28,7 +28,7 @@ const Timeseries = () => {
 
 		const formattedFrom = moment(dateRange.from).format('YYYY-MM-DD');
 		const formattedTo = moment(dateRange.to).format('YYYY-MM-DD');
-		// onShowTimeChange(formattedFrom, formattedTo);
+		onShowTimeChange(formattedFrom, formattedTo);
 	};
 
 	const getFormattedValue = value =>
