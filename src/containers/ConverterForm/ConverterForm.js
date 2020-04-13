@@ -27,41 +27,41 @@ const ConverterForm = () => {
 		onConvert(converterData);
 	};
 
+	const isButtonDisabled = () => !converterData.amount || !converterData.to;
+
 	return (
-		<>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="convert_amount">Amount:</label>
-				<input
-					id="convert_amount"
-					type="number"
-					name="amount"
-					value={converterData.amount}
-					onChange={handleChange}
-				></input>
-				<label htmlFor="convert_from">Convert from:</label>
-				{/*
-          <select
-            id="convert_from"
-            name="from"
-            value={converterData.from}
-            onChange={handleChange}
-          >
-            {currencyOptions}
-          </select>
-        */}
-				<span>EUR</span>
-				<label htmlFor="convert_to">Convert to:</label>
-				<select
-					id="convert_to"
-					name="to"
-					value={converterData.to}
-					onChange={handleChange}
-				>
-					{getCurrencySelectOptions}
-				</select>
-				<button>SUBMIT</button>
-			</form>
-		</>
+		<form onSubmit={handleSubmit}>
+			<label htmlFor="convert_amount">Amount:</label>
+			<input
+				id="convert_amount"
+				type="number"
+				name="amount"
+				value={converterData.amount}
+				onChange={handleChange}
+			></input>
+			<label htmlFor="convert_from">Convert from:</label>
+			{/*
+        <select
+          id="convert_from"
+          name="from"
+          value={converterData.from}
+          onChange={handleChange}
+        >
+          {currencyOptions}
+        </select>
+      */}
+			<span>EUR</span>
+			<label htmlFor="convert_to">Convert to:</label>
+			<select
+				id="convert_to"
+				name="to"
+				value={converterData.to}
+				onChange={handleChange}
+			>
+				{getCurrencySelectOptions}
+			</select>
+			<button disabled={isButtonDisabled()}>SUBMIT</button>
+		</form>
 	);
 };
 
