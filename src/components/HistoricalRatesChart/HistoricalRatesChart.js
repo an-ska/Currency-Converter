@@ -1,7 +1,7 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
-const Chart = chartData => {
+const HistoricalRatesChart = chartData => {
 	const data = chartData.data;
 
 	return (
@@ -20,4 +20,4 @@ const Chart = chartData => {
 	);
 };
 
-export default Chart;
+export default HistoricalRatesChart;

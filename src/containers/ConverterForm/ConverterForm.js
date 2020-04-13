@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import './Converter.scss';
+import './ConverterForm.scss';
 import { convert } from '../../store/actions/converter';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
 import getCurrencySelectOptions from '../../services/currency/getCurrencySelectOptions';
 
-const Converter = () => {
+const ConverterForm = () => {
 	const dispatch = useDispatch();
 	const [converterData, setConverterData] = useState({
 		amount: '',
@@ -13,7 +14,6 @@ const Converter = () => {
 	});
 
 	const onConvert = converterData => dispatch(convert(converterData));
-	const conversionResult = useSelector(state => state.converter.conversionResult);
 
 	const handleChange = event => {
 		const { name, value } = event.target;
@@ -61,12 +61,8 @@ const Converter = () => {
 				</select>
 				<button>SUBMIT</button>
 			</form>
-			<div>
-				{conversionResult.amount} {conversionResult.from} is{' '}
-				{conversionResult.result} {conversionResult.to}
-			</div>
 		</>
 	);
 };
 
-export default Converter;
+export default ConverterForm;

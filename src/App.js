@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import CurrencyConverter from './containers/CurrencyConverter/CurrencyConverter';
+import CurrencyApp from './containers/CurrencyApp/CurrencyApp';
 
-const App = () => <CurrencyConverter />;
+const App = () => <CurrencyApp />;
 
 export default App;
