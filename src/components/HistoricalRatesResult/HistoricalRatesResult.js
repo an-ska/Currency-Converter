@@ -6,8 +6,8 @@ const HistoricalRatesResult = ({ historicalRates }) => (
 		<p className="container__text">
 			Historical rates of currency: {historicalRates.currency}
 		</p>
-		{historicalRates.chart.map(data => (
-			<p key={data.date} className="container__text">
+		{historicalRates.chart.map((data, index) => (
+			<p key={index} className="container__text">
 				<span>{data.date}</span>: <span>{data.rate}</span>
 			</p>
 		))}
