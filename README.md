@@ -1,6 +1,6 @@
 # Currency APP
 
-This app allows users to convert currencies and get currency historical rates changes upon the time.
+This app allows users to convert currencies and get currency historical rate changes.
 
 Stack: JavaScript, React, Redux, Redux Thunk, Redux Persist, Axios, React Day Picker, Recharts, Moment.js, JSX, HTML, CSS, SASS, Flexbox, Webpack, Babel, ESLint, Prettier, Enzyme, Jest, API: [https://fixer.io/](https://fixer.io/)
 
