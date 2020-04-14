@@ -19,7 +19,7 @@ const HistoricalRatesResult = ({ historicalRates }) => {
 				</p>
 			))}
 			<p className="container__text">
-				{currencyDifference > 0 ? 'Rate increased by: ' : 'Rate decreased by: '}
+				{currencyDifference > 0 ? 'Rate decreased by: ' : 'Rate increased by: '}
 				{currencyDifference}
 			</p>
 		</section>
