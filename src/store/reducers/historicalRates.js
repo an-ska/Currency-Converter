@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 export const initialState = {
-	error: null,
+	error: false,
 	loading: false,
 	historicalRatesData: {
 		chart: [],
@@ -11,7 +11,7 @@ export const initialState = {
 
 const historicalRatesStart = state => ({
 	...state,
-	error: null,
+	error: false,
 	loading: true,
 });
 

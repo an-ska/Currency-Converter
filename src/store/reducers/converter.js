@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 export const initialState = {
-	error: null,
+	error: false,
 	loading: false,
 	conversionResult: {
 		amount: null,
@@ -13,7 +13,7 @@ export const initialState = {
 
 const convertStart = state => ({
 	...state,
-	error: null,
+	error: false,
 	loading: true,
 });
 
