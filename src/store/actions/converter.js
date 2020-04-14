@@ -24,19 +24,17 @@ export const convertFail = error => ({
 	error,
 });
 
-export const convert = converterData => dispatch => {
+export const convert = converterData => async dispatch => {
 	dispatch(convertStart());
 
 	const url = `${latest}&base=${converterData.from}&symbols=${converterData.to}`;
 
-	return axios
-		.get(url)
-		.then(response => {
-			const rate = response.data.rates[converterData.to];
+	try {
+		const response = await axios.get(url);
+		const rate = response.data.rates[converterData.to];
 
-			dispatch(convertSuccess(converterData, rate));
-		})
-		.catch(() => {
-			dispatch(convertFail(true));
-		});
+		dispatch(convertSuccess(converterData, rate));
+	} catch (error) {
+		dispatch(convertFail(true));
+	}
 };
