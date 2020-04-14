@@ -3,10 +3,8 @@ import { calculateCurrencyDifference } from '../../services/currency/currencyCon
 import PropTypes from 'prop-types';
 
 const HistoricalRatesResult = ({ historicalRates }) => {
-	const currencyDifference = calculateCurrencyDifference(
-		historicalRates.chart[0].rate,
-		historicalRates.chart[1].rate,
-	);
+	const rates = historicalRates.chart.map(data => data.rate);
+	const currencyDifference = calculateCurrencyDifference(rates[0], rates[1]);
 
 	return (
 		<section className="container">
