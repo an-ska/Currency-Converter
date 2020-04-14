@@ -13,7 +13,7 @@ const ConverterResult = ({ amount, from, result, to }) => (
 ConverterResult.propTypes = {
 	amount: PropTypes.string.isRequired,
 	from: PropTypes.string.isRequired,
-	result: PropTypes.number.isRequired,
+	result: PropTypes.string.isRequired,
 	to: PropTypes.string.isRequired,
 };
 

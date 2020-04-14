@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import { latest } from '../../endpoints';
+import { convertCurrency } from '../../services/currency/currencyConverter';
 
 export const convertStart = () => ({
 	type: actionTypes.CONVERT_START,
@@ -14,7 +15,7 @@ export const convertSuccess = (converterData, rate) => {
 		amount,
 		from,
 		to,
-		result: amount * rate,
+		result: convertCurrency(amount, rate),
 	};
 };
 

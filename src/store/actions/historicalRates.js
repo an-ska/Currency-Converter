@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import { API, API_KEY } from '../../endpoints';
+import { formatCurrency } from '../../services/currency/currencyConverter';
 
 export const historicalRatesStart = () => ({
 	type: actionTypes.HISTORICAL_RATES_START,
@@ -10,7 +11,7 @@ const historicalRatesSuccess = (currency, historicalRates) => ({
 	type: actionTypes.HISTORICAL_RATES_SUCCESS,
 	historicalRates: historicalRates.map(data => ({
 		date: data.date,
-		rate: data.rates[currency],
+		rate: formatCurrency(data.rates[currency]),
 	})),
 	currency,
 });

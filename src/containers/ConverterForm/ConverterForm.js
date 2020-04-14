@@ -48,7 +48,7 @@ const ConverterForm = () => {
           </select>
         */}
 					<select name="from" value={converterData.from} onChange={handleChange}>
-						<option>EUR: EURO</option>
+						<option value="EUR">EUR: EURO</option>
 					</select>
 				</div>
 				<div className="form-field">
