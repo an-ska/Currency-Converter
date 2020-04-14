@@ -25,16 +25,20 @@ const ConverterForm = () => {
 		onConvert(converterData);
 	};
 
-	const isButtonDisabled = () =>
+	const isButtonDisabled =
 		!converterData.amount || !converterData.from || !converterData.to;
 
 	return (
 		<section className="container">
 			<form onSubmit={handleSubmit}>
 				<div className="form-field">
-					<label htmlFor="amount">Amount to convert:</label>
+					<label htmlFor="amount">
+						Amount (only number with decimal to 2 places allowed):
+					</label>
 					<input
 						type="number"
+						min="0"
+						step="0.01"
 						name="amount"
 						value={converterData.amount}
 						onChange={handleChange}
@@ -57,7 +61,7 @@ const ConverterForm = () => {
 						{getCurrencySelectOptions}
 					</select>
 				</div>
-				<button disabled={isButtonDisabled()}>SUBMIT</button>
+				<button disabled={isButtonDisabled}>SUBMIT</button>
 			</form>
 		</section>
 	);

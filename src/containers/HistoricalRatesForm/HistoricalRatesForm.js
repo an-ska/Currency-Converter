@@ -45,7 +45,7 @@ const HistoricalRatesForm = () => {
 
 	const getFormattedValue = date => (date ? formatDate(date) : '');
 
-	const isButtonDisabled = () => !dateRange.from || !dateRange.to || !currency;
+	const isButtonDisabled = !dateRange.from || !dateRange.to || !currency;
 
 	let { from, to } = dateRange;
 	const modifiers = { start: from, end: to };
@@ -95,7 +95,7 @@ const HistoricalRatesForm = () => {
 						onDayChange={handleDateToChange}
 					/>
 				</div>
-				<button disabled={isButtonDisabled()}>SUBMIT</button>
+				<button disabled={isButtonDisabled}>SUBMIT</button>
 			</form>
 		</section>
 	);
