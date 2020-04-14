@@ -3,6 +3,10 @@
 select,
 input {
   appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   border-radius: 0;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -12,8 +16,7 @@ input {
   font-weight: 100;
   outline: none;
   padding: 0 16px;
-  width: auto;
-  min-width: 370px;
+  width: 370px;
   background-color: $main-color;
 }
 
@@ -63,6 +66,7 @@ button {
   outline: 0;
   background: $accent-color;
   width: 100%;
+  min-width: 370px;
   border: 0;
   padding: 15px;
   color: $main-color;
