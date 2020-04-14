@@ -32,7 +32,7 @@ const ConverterForm = () => {
 		<section className="container">
 			<form onSubmit={handleSubmit}>
 				<div className="form-field">
-					<label htmlFor="amount">Amount:</label>
+					<label htmlFor="amount">Amount to convert:</label>
 					<input
 						type="number"
 						name="amount"
@@ -41,7 +41,7 @@ const ConverterForm = () => {
 					></input>
 				</div>
 				<div className="form-field">
-					<label htmlFor="from">Convert from:</label>
+					<label htmlFor="from">Convert from currency:</label>
 					{/*
           <select "name="from" value={converterData.from} onChange={handleChange}>
             {currencyOptions}
@@ -52,7 +52,7 @@ const ConverterForm = () => {
 					</select>
 				</div>
 				<div className="form-field">
-					<label htmlFor="to">Convert to:</label>
+					<label htmlFor="to">Convert to currency:</label>
 					<select name="to" value={converterData.to} onChange={handleChange}>
 						{getCurrencySelectOptions}
 					</select>

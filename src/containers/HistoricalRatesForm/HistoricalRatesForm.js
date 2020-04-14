@@ -54,13 +54,13 @@ const HistoricalRatesForm = () => {
 		<section className="container">
 			<form onSubmit={handleSubmit}>
 				<div className="form-field">
-					<label htmlFor="currency">Currency:</label>
+					<label htmlFor="currency">Get historical rates of currency:</label>
 					<select name="currency" value={currency} onChange={handleCurrencyChange}>
 						{getCurrencySelectOptions}
 					</select>
 				</div>
 				<div className="form-field">
-					<label htmlFor="from">From:</label>
+					<label htmlFor="from">Start date:</label>
 					<DayPickerInput
 						name="from"
 						placeholder=""
@@ -79,7 +79,7 @@ const HistoricalRatesForm = () => {
 					/>
 				</div>
 				<div className="form-field">
-					<label htmlFor="to">To:</label>
+					<label htmlFor="to">End date:</label>
 					<DayPickerInput
 						name="to"
 						placeholder=""

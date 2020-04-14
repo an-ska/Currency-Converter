@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const HistoricalRatesResult = ({ historicalRates }) => (
 	<section className="container">
 		<p className="container__text">
-			Historical rates for currency: {historicalRates.currency}
+			Historical rates of currency: {historicalRates.currency}
 		</p>
 		{historicalRates.chart.map(data => (
 			<p key={data.date} className="container__text">
