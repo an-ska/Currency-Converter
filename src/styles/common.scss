@@ -28,7 +28,7 @@ label {
   margin-bottom: 10px;
 }
 
-.formField {
+.form-field {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +50,11 @@ form {
   text-align: center;
   width: 80%;
   min-width: 400px;
+
+  &__text {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
 }
 
 button {

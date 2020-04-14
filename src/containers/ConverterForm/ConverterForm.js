@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import './ConverterForm.scss';
 import { convert } from '../../store/actions/converter';
 import { useDispatch } from 'react-redux';
-
 import getCurrencySelectOptions from '../../services/currency/getCurrencySelectOptions';
 
 const ConverterForm = () => {
@@ -33,45 +31,29 @@ const ConverterForm = () => {
 	return (
 		<section className="container">
 			<form onSubmit={handleSubmit}>
-				<div className="formField">
-					<label htmlFor="convert_amount">Amount:</label>
+				<div className="form-field">
+					<label htmlFor="amount">Amount:</label>
 					<input
-						id="convert_amount"
 						type="number"
 						name="amount"
 						value={converterData.amount}
 						onChange={handleChange}
 					></input>
 				</div>
-				<div className="formField">
-					<label htmlFor="convert_from">Convert from:</label>
+				<div className="form-field">
+					<label htmlFor="from">Convert from:</label>
 					{/*
-          <select
-            id="convert_from"
-            name="from"
-            value={converterData.from}
-            onChange={handleChange}
-          >
+          <select "name="from" value={converterData.from} onChange={handleChange}>
             {currencyOptions}
           </select>
         */}
-					<select
-						id="convert_from"
-						name="from"
-						value={converterData.from}
-						onChange={handleChange}
-					>
+					<select name="from" value={converterData.from} onChange={handleChange}>
 						<option>EUR: EURO</option>
 					</select>
 				</div>
-				<div className="formField">
-					<label htmlFor="convert_to">Convert to:</label>
-					<select
-						id="convert_to"
-						name="to"
-						value={converterData.to}
-						onChange={handleChange}
-					>
+				<div className="form-field">
+					<label htmlFor="to">Convert to:</label>
+					<select name="to" value={converterData.to} onChange={handleChange}>
 						{getCurrencySelectOptions}
 					</select>
 				</div>

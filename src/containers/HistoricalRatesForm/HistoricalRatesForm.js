@@ -9,7 +9,6 @@ import {
 	getHistoricalRatesStartDate,
 } from '../../services/dates';
 import getCurrencySelectOptions from '../../services/currency/getCurrencySelectOptions';
-import './HistoricalRatesForm.scss';
 
 const HistoricalRatesForm = () => {
 	const [dateRange, setDateRange] = useState({
@@ -54,18 +53,13 @@ const HistoricalRatesForm = () => {
 	return (
 		<section className="container">
 			<form onSubmit={handleSubmit}>
-				<div className="formField">
+				<div className="form-field">
 					<label htmlFor="currency">Currency:</label>
-					<select
-						id="currency"
-						name="currency"
-						value={currency}
-						onChange={handleCurrencyChange}
-					>
+					<select name="currency" value={currency} onChange={handleCurrencyChange}>
 						{getCurrencySelectOptions}
 					</select>
 				</div>
-				<div className="formField">
+				<div className="form-field">
 					<label htmlFor="from">From:</label>
 					<DayPickerInput
 						name="from"
@@ -84,7 +78,7 @@ const HistoricalRatesForm = () => {
 						onDayChange={handleDateFromChange}
 					/>
 				</div>
-				<div className="formField">
+				<div className="form-field">
 					<label htmlFor="to">To:</label>
 					<DayPickerInput
 						name="to"

@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 const ConverterResult = ({ amount, from, result, to }) => (
 	<section className="container">
-		{amount} {from} is {result} {to}
+		<p className="container__text">Conversion result:</p>
+		<p className="container__text">
+			{amount} {from} is {result} {to}
+		</p>
 	</section>
 );
 
