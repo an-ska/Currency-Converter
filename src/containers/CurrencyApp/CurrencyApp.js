@@ -10,24 +10,27 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import {
 	conversionErrorText,
 	historicalRatesErrorText,
-} from '../../services/errorMessages';
+	conversionLoaderText,
+	historicalRatesLoaderText,
+} from '../../services/messages';
+import Loader from '../../components/Loader/Loader';
 
 const CurrencyApp = () => {
-	const historicalRates = useSelector(
-		state => state.historicalRates.historicalRatesData,
-	);
-	const historicalRatesError = useSelector(state => state.historicalRates.error);
-	const { chart } = historicalRates;
-	const conversionResult = useSelector(state => state.converter.conversionResult);
-	const conversionError = useSelector(state => state.converter.error);
+	const {
+		conversionResult,
+		error: conversionError,
+		loading: conversionLoading,
+	} = useSelector(state => state.converter);
 	const { amount, from, result, to } = conversionResult;
+	const historicalRates = useSelector(state => state.historicalRates);
+	const { chart } = historicalRates.historicalRatesData;
 
 	return (
 		<div className="currency-app">
 			<div className="currency-app__container">
-				<ConverterForm></ConverterForm>
-				{conversionError && <ErrorMessage text={conversionErrorText}></ErrorMessage>}
-
+				<ConverterForm />
+				{conversionError && <ErrorMessage text={conversionErrorText} />}
+				{conversionLoading && <Loader text={conversionLoaderText} />}
 				{result && (
 					<ConverterResult
 						amount={amount}
@@ -36,15 +39,15 @@ const CurrencyApp = () => {
 						to={to}
 					></ConverterResult>
 				)}
-				<HistoricalRatesForm></HistoricalRatesForm>
-
-				{historicalRatesError && (
-					<ErrorMessage text={historicalRatesErrorText}></ErrorMessage>
-				)}
+				<HistoricalRatesForm />
+				{historicalRates.loading && <Loader text={historicalRatesLoaderText} />}
+				{historicalRates.error && <ErrorMessage text={historicalRatesErrorText} />}
 				{chart.length > 0 && (
 					<>
 						<HistoricalRatesChart historicalRates={chart} />
-						<HistoricalRatesResult historicalRates={historicalRates} />
+						<HistoricalRatesResult
+							historicalRates={historicalRates.historicalRatesData}
+						/>
 					</>
 				)}
 			</div>
