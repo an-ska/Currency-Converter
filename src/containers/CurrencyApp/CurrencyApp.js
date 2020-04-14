@@ -23,30 +23,32 @@ const CurrencyApp = () => {
 	const { amount, from, result, to } = conversionResult;
 
 	return (
-		<>
-			<ConverterForm></ConverterForm>
-			{conversionError && <ErrorMessage text={conversionErrorText}></ErrorMessage>}
+		<div className="currency-app">
+			<div className="currency-app__container">
+				<ConverterForm></ConverterForm>
+				{conversionError && <ErrorMessage text={conversionErrorText}></ErrorMessage>}
 
-			{result && (
-				<ConverterResult
-					amount={amount}
-					from={from}
-					result={result}
-					to={to}
-				></ConverterResult>
-			)}
-			<HistoricalRatesForm></HistoricalRatesForm>
+				{result && (
+					<ConverterResult
+						amount={amount}
+						from={from}
+						result={result}
+						to={to}
+					></ConverterResult>
+				)}
+				<HistoricalRatesForm></HistoricalRatesForm>
 
-			{historicalRatesError && (
-				<ErrorMessage text={historicalRatesErrorText}></ErrorMessage>
-			)}
-			{chart.length > 0 && (
-				<>
-					<HistoricalRatesChart historicalRates={chart} />
-					<HistoricalRatesResult historicalRates={historicalRates} />
-				</>
-			)}
-		</>
+				{historicalRatesError && (
+					<ErrorMessage text={historicalRatesErrorText}></ErrorMessage>
+				)}
+				{chart.length > 0 && (
+					<>
+						<HistoricalRatesChart historicalRates={chart} />
+						<HistoricalRatesResult historicalRates={historicalRates} />
+					</>
+				)}
+			</div>
+		</div>
 	);
 };
 

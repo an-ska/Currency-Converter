@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ConverterResult = ({ amount, from, result, to }) => (
-	<div>
+	<section className="container">
 		{amount} {from} is {result} {to}
-	</div>
+	</section>
 );
 
 ConverterResult.propTypes = {
@@ -13,4 +13,5 @@ ConverterResult.propTypes = {
 	result: PropTypes.number.isRequired,
 	to: PropTypes.string.isRequired,
 };
+
 export default ConverterResult;

@@ -9,6 +9,7 @@ import {
 	getHistoricalRatesStartDate,
 } from '../../services/dates';
 import getCurrencySelectOptions from '../../services/currency/getCurrencySelectOptions';
+import './HistoricalRatesForm.scss';
 
 const HistoricalRatesForm = () => {
 	const [dateRange, setDateRange] = useState({
@@ -51,47 +52,58 @@ const HistoricalRatesForm = () => {
 	const modifiers = { start: from, end: to };
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<label htmlFor="currency">Currency:</label>
-			<select
-				id="currency"
-				name="currency"
-				value={currency}
-				onChange={handleCurrencyChange}
-			>
-				{getCurrencySelectOptions}
-			</select>
-			<label htmlFor="from">From:</label>
-			<DayPickerInput
-				name="from"
-				placeholder=""
-				value={getFormattedValue(from)}
-				dayPickerProps={{
-					selectedDays: [from, { from, to }],
-					disabledDays: { before: getHistoricalRatesStartDate, after: getTodayDate },
-					modifiers,
-					numberOfMonths: 2,
-					onDayClick: () => to.getInput().focus(),
-				}}
-				onDayChange={handleDateFromChange}
-			/>{' '}
-			<label htmlFor="to">To:</label>
-			<DayPickerInput
-				name="to"
-				placeholder=""
-				ref={el => (to = el)}
-				value={getFormattedValue(to)}
-				dayPickerProps={{
-					selectedDays: [from, { from, to }],
-					disabledDays: { before: from, after: getTodayDate },
-					modifiers,
-					month: from,
-					numberOfMonths: 2,
-				}}
-				onDayChange={handleDateToChange}
-			/>
-			<button disabled={isButtonDisabled()}>SUBMIT</button>
-		</form>
+		<section className="container">
+			<form onSubmit={handleSubmit}>
+				<div className="formField">
+					<label htmlFor="currency">Currency:</label>
+					<select
+						id="currency"
+						name="currency"
+						value={currency}
+						onChange={handleCurrencyChange}
+					>
+						{getCurrencySelectOptions}
+					</select>
+				</div>
+				<div className="formField">
+					<label htmlFor="from">From:</label>
+					<DayPickerInput
+						name="from"
+						placeholder=""
+						value={getFormattedValue(from)}
+						dayPickerProps={{
+							selectedDays: [from, { from, to }],
+							disabledDays: {
+								before: getHistoricalRatesStartDate,
+								after: getTodayDate,
+							},
+							modifiers,
+							numberOfMonths: 2,
+							onDayClick: () => to.getInput().focus(),
+						}}
+						onDayChange={handleDateFromChange}
+					/>
+				</div>
+				<div className="formField">
+					<label htmlFor="to">To:</label>
+					<DayPickerInput
+						name="to"
+						placeholder=""
+						ref={el => (to = el)}
+						value={getFormattedValue(to)}
+						dayPickerProps={{
+							selectedDays: [from, { from, to }],
+							disabledDays: { before: from, after: getTodayDate },
+							modifiers,
+							month: from,
+							numberOfMonths: 2,
+						}}
+						onDayChange={handleDateToChange}
+					/>
+				</div>
+				<button disabled={isButtonDisabled()}>SUBMIT</button>
+			</form>
+		</section>
 	);
 };
 

@@ -1,10 +1,11 @@
+@import "../../styles/variables.scss";
+
 .errorMessage {
   font-size: 20px;
+  color: $main-color;
+  text-align: center;
   padding: 20px;
-  border: 1px solid #eee;
-  border-left-color: #d9534f;
-  border-left-width: 5px;
   width: 80%;
-  background: rgba(217, 83, 79, .1);
-  margin: 10px auto;
+  min-width: 400px;
+  background: $error-color;
 }
