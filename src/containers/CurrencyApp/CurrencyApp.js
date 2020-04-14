@@ -27,6 +27,10 @@ const CurrencyApp = () => {
 
 	return (
 		<div className="currency-app">
+			<h1 className="currency-app__title">
+				Use the following forms to convert currencies and check out currency changes
+				upon the time
+			</h1>
 			<div className="currency-app__container">
 				<ConverterForm />
 				{conversionError && <ErrorMessage text={conversionErrorText} />}
